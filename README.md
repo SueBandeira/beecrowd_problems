@@ -1,6 +1,6 @@
 # Boas-vindas
 
-Bem-vindo(a) ao repositório de soluções de exercícios do [Beecrowd](link_do_site).
+Bem-vindo(a) ao repositório de soluções de exercícios do [Beecrowd]([link_do_site](https://judge.beecrowd.com/pt)).
 
 ## Sobre o Repositório
 
