@@ -2,13 +2,13 @@ package beginner_iniciante;
 
 import java.util.Scanner;
 
-public class AreadoCirculo1002 {
+public class Main1003 {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    double A, R=sc.nextDouble();
+    int A= sc.nextInt(), B= sc.nextInt(), SOMA;
 
-    A =  Math.PI * Math.pow(R, R);
+    SOMA = A + B;
 
-    System.out.printf("A=%.4f\n", A);
+    System.out.printf("SOMA = %d\n", SOMA);
   }
 }

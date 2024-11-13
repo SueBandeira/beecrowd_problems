@@ -2,13 +2,13 @@ package beginner_iniciante;
 
 import java.util.Scanner;
 
-public class SomaSimples1003 {
+public class Main1001 {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int A= sc.nextInt(), B= sc.nextInt(), SOMA;
+    int A= sc.nextInt(), B= sc.nextInt(), X;
 
-    SOMA = A + B;
+    X = A + B;
 
-    System.out.printf("SOMA = %d\n", SOMA);
+    System.out.printf("X = %d\n", X);
   }
 }
