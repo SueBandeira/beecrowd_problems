@@ -2,9 +2,10 @@ package beginner_iniciante;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import java.util.Scanner;
 
-public class Main1435 {
+public class Main1478 {
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
@@ -35,17 +36,11 @@ public class Main1435 {
     for (int k = 0; k < in.length; k++) {
       int n = in[k];
       int[][] mat = new int[n][n];
-      int x = (n + 1) / 2;
-      int a = 0, b = n - 1;
 
-      for (int l = 1; l <= x; l++) {
-        for (int i = a; i <= b; i++) {
-          for (int j = a; j <= b; j++) {
-            mat[i][j] = l;
-          }
+      for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+          mat[i][j] = Math.abs(i - j) + 1;
         }
-        a++;
-        b--;
       }
       matrizes[k] = mat;
     }
@@ -66,40 +61,41 @@ public class Main1435 {
     }
     return sb.toString();
   }
+
 }
 
-class Main1435Test {
+class Main1478Test {
 
   @Test
   void solution() {
     int[] input = {1, 2, 3, 4, 5};
 
-    int[][][] result = Main1435.entrada(input);
+    int[][][] result = Main1478.entrada(input);
 
     int[][] expected1 = {
         {1}
     };
     int[][] expected2 = {
-        {1, 1},
-        {1, 1}
+        {1, 2},
+        {2, 1}
     };
     int[][] expected3 = {
-        {1, 1, 1},
-        {1, 2, 1},
-        {1, 1, 1}
+        {1, 2, 3},
+        {2, 1, 2},
+        {3, 2, 1}
     };
     int[][] expected4 = {
-        {1, 1, 1, 1},
-        {1, 2, 2, 1},
-        {1, 2, 2, 1},
-        {1, 1, 1, 1}
+        {1, 2, 3, 4},
+        {2, 1, 2, 3},
+        {3, 2, 1, 2},
+        {4, 3, 2, 1}
     };
     int[][] expected5 = {
-        {1, 1, 1, 1, 1},
-        {1, 2, 2, 2, 1},
-        {1, 2, 3, 2, 1},
-        {1, 2, 2, 2, 1},
-        {1, 1, 1, 1, 1}
+        {1, 2, 3, 4, 5},
+        {2, 1, 2, 3, 4},
+        {3, 2, 1, 2, 3},
+        {4, 3, 2, 1, 2},
+        {5, 4, 3, 2, 1}
     };
 
     Assertions.assertArrayEquals(expected1, result[0]);
@@ -109,5 +105,3 @@ class Main1435Test {
     Assertions.assertArrayEquals(expected5, result[4]);
   }
 }
-
-

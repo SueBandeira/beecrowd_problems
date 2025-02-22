@@ -2,10 +2,10 @@ package beginner_iniciante;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import java.util.Scanner;
 
-public class Main1435 {
-
+public class Main1534 {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int maxSize = 100;
@@ -34,18 +34,20 @@ public class Main1435 {
 
     for (int k = 0; k < in.length; k++) {
       int n = in[k];
+      int centralImpar = (n/2);
       int[][] mat = new int[n][n];
-      int x = (n + 1) / 2;
-      int a = 0, b = n - 1;
 
-      for (int l = 1; l <= x; l++) {
-        for (int i = a; i <= b; i++) {
-          for (int j = a; j <= b; j++) {
-            mat[i][j] = l;
+      for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+          if (i == j) {
+            if (i==centralImpar && n % 2 != 0) mat[i][j] = 2;
+            else mat[i][j] = 1;
+          } else if (i == n - 1 - j) {
+            mat[i][j] = 2;
+          } else {
+            mat[i][j] = 3;
           }
         }
-        a++;
-        b--;
       }
       matrizes[k] = mat;
     }
@@ -68,46 +70,28 @@ public class Main1435 {
   }
 }
 
-class Main1435Test {
-
+class Main1534Test {
   @Test
   void solution() {
-    int[] input = {1, 2, 3, 4, 5};
-
-    int[][][] result = Main1435.entrada(input);
-
+    int[] input = {4, 7};
+    int[][][] result = Main1534.entrada(input);
     int[][] expected1 = {
-        {1}
+        {1, 3, 3, 2},
+        {3, 1, 2, 3},
+        {3, 2, 1, 3},
+        {2, 3, 3, 1}
     };
     int[][] expected2 = {
-        {1, 1},
-        {1, 1}
-    };
-    int[][] expected3 = {
-        {1, 1, 1},
-        {1, 2, 1},
-        {1, 1, 1}
-    };
-    int[][] expected4 = {
-        {1, 1, 1, 1},
-        {1, 2, 2, 1},
-        {1, 2, 2, 1},
-        {1, 1, 1, 1}
-    };
-    int[][] expected5 = {
-        {1, 1, 1, 1, 1},
-        {1, 2, 2, 2, 1},
-        {1, 2, 3, 2, 1},
-        {1, 2, 2, 2, 1},
-        {1, 1, 1, 1, 1}
+        {1, 3, 3, 3, 3, 3, 2},
+        {3, 1, 3, 3, 3, 2, 3},
+        {3, 3, 1, 3, 2, 3, 3},
+        {3, 3, 3, 2, 3, 3, 3},
+        {3, 3, 2, 3, 1, 3, 3},
+        {3, 2, 3, 3, 3, 1, 3},
+        {2, 3, 3, 3, 3, 3, 1}
     };
 
     Assertions.assertArrayEquals(expected1, result[0]);
     Assertions.assertArrayEquals(expected2, result[1]);
-    Assertions.assertArrayEquals(expected3, result[2]);
-    Assertions.assertArrayEquals(expected4, result[3]);
-    Assertions.assertArrayEquals(expected5, result[4]);
   }
 }
-
-
